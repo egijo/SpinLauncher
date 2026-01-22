@@ -120,7 +120,7 @@ async function update() {
   document.getElementById('angle').innerText    = d.angle + ' °';
 
   const btn = document.getElementById('armBtn');
-  btn.innerText = d.arm ? "disarm" : "arm";
+  btn.innerText = d.arm ? "DISARM" : "ARM";
   btn.style.backgroundColor = d.arm ? "red" : "green";
 }
 setInterval(update, 300);
@@ -128,9 +128,9 @@ setInterval(update, 300);
 </head>
 
 <body>
-<h1>Rasenmäher</h1>
+<h1>SpinLauncher</h1>
 
-<button id="armBtn" class="btn" onclick="location.href='/arm'">rasen mähen</button>
+<button id="armBtn" class="btn" onclick="location.href='/arm'">ARM</button>
 
 <div class="box"><b>Measured RPM</b><div id="measured">0 RPM</div></div>
 <div class="box"><b>Desired RPM</b><div id="desired">0 RPM</div></div>
