@@ -8,11 +8,11 @@ import sys
 # EINSTELLUNGEN
 # ==========================================================
 
-IMAGE_DIR = "calibration_images"   # Ordner mit Kalibrierbildern
+IMAGE_DIR = "calibration_images"
 IMAGE_EXTENSIONS = ("*.png", "*.jpg", "*.jpeg", "*.tif", "*.tiff")
 
-CHECKERBOARD = (4, 5)      # (Spalten, Zeilen) innere Ecken
-SQUARE_SIZE = 35.0         # mm (!!! exakt messen !!!)
+CHECKERBOARD = (4, 5)
+SQUARE_SIZE = 35.0         # mm 
 
 OUTPUT_FILE_NPZ = "camera_calibration.npz"
 OUTPUT_FILE_YAML = "camera_calibration.yaml"
@@ -25,8 +25,8 @@ objp = np.zeros((CHECKERBOARD[0] * CHECKERBOARD[1], 3), np.float32)
 objp[:, :2] = np.mgrid[0:CHECKERBOARD[0], 0:CHECKERBOARD[1]].T.reshape(-1, 2)
 objp *= SQUARE_SIZE
 
-objpoints = []  # 3D Punkte
-imgpoints = []  # 2D Punkte
+objpoints = []
+imgpoints = []
 
 # ==========================================================
 # BILDER LADEN
@@ -109,7 +109,7 @@ print("Kameramatrix:\n", cameraMatrix)
 print("Distortion:\n", distCoeffs.ravel())
 
 # ==========================================================
-# KAMERAHÖHE (solvePnP mit erstem Bild)
+# KAMERAHÖHE
 # ==========================================================
 
 success, rvec, tvec = cv2.solvePnP(
