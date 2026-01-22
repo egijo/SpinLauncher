@@ -109,7 +109,7 @@ while True:
 
 cv2.destroyAllWindows()
 
-print("Muster bestaetigt:", best_pattern)
+print("✔ Muster bestaetigt:", best_pattern)
 
 # ==========================================================
 # OBJEKTPUNKTE
@@ -132,7 +132,7 @@ ret, K, dist, _, _ = cv2.calibrateCamera(
 np.save("camera_matrix.npy", K)
 np.save("dist_coeffs.npy", dist)
 
-#print("Kamerakalibrierung abgeschlossen")
+#print("✔ Kamerakalibrierung abgeschlossen")
 
 # ==========================================================
 # VIDEO-WRITER
@@ -162,7 +162,7 @@ while True:
 cap.release()
 out.release()
 
-print("Entzerrtes Video gespeichert als:", VIDEO_OUT)
+print("🎉 Entzerrtes Video gespeichert als:", VIDEO_OUT)
 
 '''
 
@@ -196,7 +196,7 @@ if not os.path.exists(DIST_COEFFS_PATH):
 K    = np.load(CAMERA_MATRIX_PATH)
 dist = np.load(DIST_COEFFS_PATH)
 
-print("Kameraparameter geladen")
+print("✔ Kameraparameter geladen")
 
 # ==========================================================
 # VIDEO ÖFFNEN
@@ -232,12 +232,11 @@ while True:
 cap.release()
 out.release()
 
-print("Entzerrtes Video gespeichert als:")
+print("🎉 Entzerrtes Video gespeichert als:")
 print(VIDEO_OUT)
 
 
 '''
-
 
 import cv2
 import numpy as np
@@ -320,7 +319,7 @@ np.savez(
     corners=best_corners.astype(np.float32)
 )
 
-print("Schachbrettdaten gespeichert unter:")
+print("✔ Schachbrettdaten gespeichert unter:")
 print(CHESSBOARD_DATA_PATH)
 
 # ==========================================================
@@ -362,7 +361,7 @@ while True:
 
 cv2.destroyAllWindows()
 
-print("Muster bestaetigt:", best_pattern)
+print("✔ Muster bestaetigt:", best_pattern)
 
 # ==========================================================
 # OBJEKTPUNKTE
@@ -402,4 +401,4 @@ while True:
 cap.release()
 out.release()
 
-print("Entzerrtes Video gespeichert als:", VIDEO_OUT)
+print("🎉 Entzerrtes Video gespeichert als:", VIDEO_OUT)
