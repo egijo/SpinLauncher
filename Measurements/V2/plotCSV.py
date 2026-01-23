@@ -659,7 +659,7 @@ plt.plot(
 plt.xlabel("Time / s")
 plt.ylabel("Distance / m")
 plt.title(f"Distance over time (n = {len(dataframes)})\n"
-          r"$v_{\mathrm{desired}} = 55\,\mathrm{km/h} \equiv 18.333\,\mathrm{m/s}$")
+          r"$v_{\mathrm{desired}} = 55\,\mathrm{km/h} \equiv 15.277\,\mathrm{m/s}$")
 plt.xlim(0, T_MAX)
 plt.ylim(bottom=0)
 plt.grid(True)
@@ -688,7 +688,7 @@ plt.xlabel("Measurement")
 plt.ylabel("Velocity / m/s")
 plt.title(
     f"Velocity distribution (n = {len(dataframes)})\n"
-    r"$v_{\mathrm{desired}} = 55\,\mathrm{km/h} \equiv 18.333\,\mathrm{m/s}$")
+    r"$v_{\mathrm{desired}} = 55\,\mathrm{km/h} \equiv 15.277\,\mathrm{m/s}$")
 plt.xlim(0, len(velocities_ms) + 1)
 plt.ylim(bottom=14.5, top=16.5)
 plt.grid(True)
