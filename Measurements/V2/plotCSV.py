@@ -314,6 +314,10 @@ plt.axhline(
     label="Average"
 )
 
+y_min = 5.5
+y_max = 8
+tick_step = 0.5
+
 plt.xticks(x)
 plt.xlabel("Measurement")
 plt.ylabel("Velocity / m/s")
@@ -321,7 +325,8 @@ plt.title(
     f"Velocity distribution (n = {len(dataframes)})\n"
     r"$v_{\mathrm{desired}} = 25\,\mathrm{km/h} \equiv 6.944\,\mathrm{m/s}$")
 plt.xlim(0, len(velocities_ms) + 1)
-plt.ylim(bottom=5.5, top=8)
+plt.ylim(bottom=y_min, top=y_max)
+plt.yticks(np.arange(y_min, y_max + tick_step, tick_step))
 plt.grid(True)
 plt.legend()
 plt.tight_layout()
@@ -498,6 +503,10 @@ plt.axhline(
     label="Average"
 )
 
+y_min = 11
+y_max = 13.5
+tick_step = 0.5
+
 plt.xticks(x)
 plt.xlabel("Measurement")
 plt.ylabel("Velocity / m/s")
@@ -505,7 +514,8 @@ plt.title(
     f"Velocity distribution (n = {len(dataframes)})\n"
     r"$v_{\mathrm{desired}} = 45\,\mathrm{km/h} \equiv 12.5\,\mathrm{m/s}$")
 plt.xlim(0, len(velocities_ms) + 1)
-plt.ylim(bottom=11, top=13)
+plt.ylim(bottom=y_min, top=y_max)
+plt.yticks(np.arange(y_min, y_max + tick_step, tick_step))
 plt.grid(True)
 plt.legend()
 plt.tight_layout()
@@ -683,6 +693,10 @@ plt.axhline(
     label="Average"
 )
 
+y_min = 14.5
+y_max = 16.5
+tick_step = 0.5
+
 plt.xticks(x)
 plt.xlabel("Measurement")
 plt.ylabel("Velocity / m/s")
@@ -690,7 +704,8 @@ plt.title(
     f"Velocity distribution (n = {len(dataframes)})\n"
     r"$v_{\mathrm{desired}} = 55\,\mathrm{km/h} \equiv 15.277\,\mathrm{m/s}$")
 plt.xlim(0, len(velocities_ms) + 1)
-plt.ylim(bottom=14.5, top=16.5)
+plt.ylim(bottom=y_min, top=y_max)
+plt.yticks(np.arange(y_min, y_max + tick_step, tick_step))
 plt.grid(True)
 plt.legend()
 plt.tight_layout()
