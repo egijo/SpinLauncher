@@ -1,5 +1,10 @@
 # SpinLauncher
 
+## Project Group
+- Mara Sandner
+- Ruven Overberg
+- Jonas Egitz
+
 ## Project Overview
 The SpinLauncher is a mechanical puck launching system designed to accelerate an ice hockey puck using centrifugal force. A rotating arm generates controlled launch velocities, allowing different puck speeds to be set reproducibly. In addition to linear speed control, the system enables the generation of puck spin, which is relevant for realistic shot simulation.
 
@@ -15,14 +20,14 @@ During operation, both pucks are accelerated simultaneously and experience ident
 By adjusting the rotational speed of the arm, the launch velocity of the puck can be precisely controlled. The combination of symmetric mass distribution and controlled release enables reproducible shot conditions and stable system behavior.
 
 ## Hardware Setup
-The SpinLauncher hardware consists of a mechanically simple but dynamically balanced rotating system. The central component is a rigid wooden arm with a total diameter of approximately 80 cm, mounted horizontally and driven by an electric motor. The geometry and dimensions of the rotating arm are defined in the CAD model [`/drawings`](./drawings).
+The SpinLauncher hardware consists of a mechanically simple but dynamically balanced rotating system. The central component is a rigid wooden arm with a total diameter of approximately 80 cm, mounted horizontally and driven by an electric asynchronous motor. The geometry and dimensions of the rotating arm are defined in the CAD model [`/drawings`](./drawings).
 
 Two standard ice hockey pucks are mounted at opposite ends of the rotating arm. This symmetric mass distribution ensures dynamic balance during operation and significantly reduces vibrations at higher rotational speeds. The puck holders and integrated release mechanisms are defined in
 ['/release Mechanism'](./release Mechanism). and the corresponding part files in the same directory.
 
 The electronic components required for motor control and sensor feedback are documented in the ['/Electronic'](.Electronic) directory. This folder contains the complete circuit schematic, including the motor drive, power supply, and the Hall effect sensor used for rotational speed measurement.
 
-The rotating arm is connected to the motor shaft via a custom-designed coupling, which ensures reliable torque transmission while maintaining axial alignment. All rotating components are mounted on a rigid frame structure that supports the motor and ensures a stable horizontal rotation axis. The frame design, including mounting points for the motor and safety elements, is defined in [`/drawings`](./drawings).
+The rotating arm is connected to the motor shaft via a torque coupling, which ensures reliable torque transmission while maintaining axial alignment. All rotating components are mounted on a rigid frame structure made out ot ITEMs that supports the motor and ensures a stable horizontal rotation axis. The frame design, including mounting points for the motor and safety elements, is defined in [`/drawings`](./drawings).
 
 ## Control & Software
 The SpinLauncher is controlled via a software-based speed control system that enables precise and reproducible adjustment of the launcher’s rotational velocity. The rotational speed of the arm is measured in real time using a Hall effect sensor, which detects the rotation of the motor shaft and provides feedback in the form of pulses. From these pulses, the system continuously calculates the current rotational speed in revolutions per minute (RPM).
@@ -33,6 +38,7 @@ All control-related code is located in the ['/SpinlaunchController'](./Spinlaunc
 
 In addition to the embedded control logic, a web-based control interface is implemented directly on the controller. The system hosts a lightweight web server that allows the user to:
 - set target RPM values,
+- set of release angle
 - monitor the current rotational speed,
 - manually trigger the puck release.
 
@@ -44,7 +50,7 @@ The modular structure of the control software allows easy modification of speed 
 
 ### Experimental Setup
 
-All experiments were conducted using a controlled laboratory setup designed to ensure reproducible launch and measurement conditions. The SpinLauncher was mounted on a rigid frame, and all measurements were performed under identical mechanical, camera, and lighting conditions.
+All experiments were conducted using a controlled laboratory setup designed to ensure reproducible launch and measurement conditions. The SpinLauncher was placed on the floor, and all measurements were performed under identical mechanical, camera, and lighting conditions.
 
 High-speed recordings were acquired using a visually triggered camera system operating in an image-based auto-trigger mode. Image sequences were recorded before and after puck launch to capture the complete release event. The camera was positioned perpendicular to the puck trajectory, facing a calibrated checkerboard plane.
 
@@ -88,9 +94,11 @@ The recorded measurement data were processed and analyzed to evaluate the launch
 
 Launch velocities were determined based on image sequences recorded with the high-speed camera. The puck position was extracted frame by frame using a **custom Python analysis script**, and the displacement over time was used to calculate the translational velocity after release. Only frames in which the puck had fully disengaged from the launcher were considered for evaluation.
 
+High-speed video recordings were used to estimate the puck velocity over a planar checkerboard pattern. The camera was intrinsically calibrated using 23 checkerboard images (4×5 inner corners, 35×35mm square size), and the resulting calibration parameters were applied to undistort all videos. The puck was tracked frame-wise using a CSRT tracker, while the background checkerboard (5×5cm) provided a spatial reference for converting pixel coordinates to real-world distances. From the tracked positions, distance–time data were extracted, stored in CSV format, and used to compute velocities and generate distance–time and scatter plots.
+
 For each target speed, multiple repetitions were analyzed to assess repeatability. Mean values and variations of the measured launch velocities were calculated and used to compare the achieved performance across different operating points. The resulting values form the basis for the plots and tables presented in the presentation and paper.
 
-The Python script used for data processing is provided in the [`/Measurements/V2`](./Measurements/V2) directory. All analysis steps are documented and can be reproduced or extended by future users.
+The Python scripts used for data processing is provided in the [`/Measurements/V2`](./Measurements/V2) directory. All analysis steps are documented and can be reproduced or extended by future users.
 
 
 ## Results Summary
