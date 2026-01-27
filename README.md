@@ -23,7 +23,7 @@ By adjusting the rotational speed of the arm, the launch velocity of the puck ca
 The SpinLauncher hardware consists of a mechanically simple but dynamically balanced rotating system. The central component is a rigid wooden arm with a total diameter of approximately 80 cm, mounted horizontally and driven by an electric asynchronous motor. The geometry and dimensions of the rotating arm are defined in the CAD model [`/drawings`](./drawings).
 
 Two standard ice hockey pucks are mounted at opposite ends of the rotating arm. This symmetric mass distribution ensures dynamic balance during operation and significantly reduces vibrations at higher rotational speeds. Each puck is inserted into a release mechanism. It is designed to imediately release the puck when it is being triggered. The servo mounted on the rotor is connected to the trigger through a wire. If the servo moves, it will pull the trigger of the release mechanism. This will release the puck as an outcome and the puck will be pressed against the wall because of the centrifugal forces. The next time the rotor will pass the puck outlet, the puck will fly through the outlet. The puck holders and integrated release mechanisms are defined in
-['/release Mechanism'](./release Mechanism). and the corresponding part files in the same directory.
+['/release Mechanism'](.release Mechanism). and the corresponding part files in the same directory.
 
 The electronic components required for motor control and sensor feedback are documented in the ['/Electronic'](.Electronic) directory. This folder contains the complete circuit schematic, including the motor drive, power supply, and the Hall effect sensor used for rotational speed measurement.
 
