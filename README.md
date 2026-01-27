@@ -95,8 +95,48 @@ The software and data provided in this repository allow full traceability of the
 
 ## Data & Analysis
 
+The recorded measurement data were processed and analyzed to evaluate the launch velocity and repeatability of the SpinLauncher. All raw data and processed results are stored in the  
+[`/Measurements/V2`](./Measurements/V2)  
+directory.
+
+Launch velocities were determined based on image sequences recorded with the high-speed camera. The puck position was extracted frame by frame using a **custom Python analysis script**, and the displacement over time was used to calculate the translational velocity after release. Only frames in which the puck had fully disengaged from the launcher were considered for evaluation.
+
+For each target speed, multiple repetitions were analyzed to assess repeatability. Mean values and variations of the measured launch velocities were calculated and used to compare the achieved performance across different operating points. The resulting values form the basis for the plots and tables presented in the presentation and paper.
+
+The Python script used for data processing is provided in the  
+[`/Measurements/V2`](./Measurements/V2)  
+directory. All analysis steps are documented and can be reproduced or extended by future users.
+
+
 ## Results Summary
 
-## Limitations & Future Work
+The SpinLauncher demonstrated reliable and reproducible performance across the tested velocity range. For target speeds of **25 km/h** and **45 km/h**, the system achieved stable operation with consistent launch conditions over **11 repeated trials** each. The measured launch velocities showed low variation between repetitions, indicating good repeatability of the centrifugal acceleration and release mechanism.
 
-## Documentation
+At higher target speeds, the system approached its mechanical limits. Tests at **55 km/h** were successfully performed for **two repetitions**, confirming the feasibility of higher launch velocities in principle. However, subsequent testing at this speed was discontinued due to mechanical failure of the launcher, which resulted in damage to the system. This failure highlights the increasing structural and dynamic loads acting on the rotating components at elevated rotational speeds. In addition, the response time of the release mechanism was insufficient at higher rotational speeds, leading to delayed puck disengagement and contributing to the observed mechanical failure.
+
+All raw and processed measurement data supporting these results are stored in the  
+[`/Measurements/V2`](./Measurements/V2)  
+directory. This folder contains the complete dataset used for analysis, including measurement files, evaluation scripts, and plots.
+
+Overall, the results confirm that the SpinLauncher is well suited for generating reproducible puck launches within a moderate speed range. The experimental data further provide valuable insight into the mechanical limitations of the current design and define clear boundaries for safe and reliable operation.
+
+
+## Limitations and Future Work
+
+The current SpinLauncher design exhibits several limitations that became apparent during high-speed testing and provide clear directions for future improvements.
+
+One key limitation is the performance of the release mechanism. At elevated rotational speeds, the response time of the current mechanism is insufficient, leading to delayed puck disengagement. Future work should focus on improving the release dynamics to ensure reliable operation at higher RPMs. In particular, the use of a linear pin actuator with sufficient pulling force should be considered as an alternative to the currently used servo-based solution.
+
+Another limitation concerns the structural stiffness of the rotating arm. At higher rotational speeds, the arm exhibited noticeable deflection, causing parts of the rotating assembly to come into contact with surrounding components. This indicates that the arm stiffness is insufficient for operation at higher loads. Future iterations should therefore include structural reinforcement of the rotating arm or the use of stiffer materials.
+
+A further limitation is the limited control and quantification of puck spin. While spin is generated implicitly by the launcher, it is neither independently adjustable nor directly measured. A potential approach to influence puck spin is to vary the launching angle, which may allow controlled manipulation of rotational behavior. In principle, the high-speed camera recordings acquired during the experiments provide sufficient data to extract and analyze puck spin. However, no dedicated analysis or systematic investigation of spin effects has been conducted so far.
+
+Safety is another important aspect that requires improvement. In the current setup, the second puck mounted on the rotating arm remains in motion after the primary puck is released. As a concrete future improvement, the unused puck should be intercepted immediately at the launcher exit using a dedicated catching or deflection mechanism. This would significantly reduce the risk associated with uncontrolled puck motion and improve the overall safety of the system.
+
+Addressing these limitations is expected to increase the maximum achievable launch speed while improving reliability, experimental control, and operational safety.
+
+
+## Further Documentation
+Paper:
+
+Notion: https://www.notion.so/mci-medtech/Hockey-PRO-28091a52c19480998451c0e8b286c635
