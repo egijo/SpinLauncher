@@ -18,8 +18,7 @@ By adjusting the rotational speed of the arm, the launch velocity of the puck ca
 The SpinLauncher hardware consists of a mechanically simple but dynamically balanced rotating system. The central component is a rigid wooden arm with a total diameter of approximately 80 cm, mounted horizontally and driven by an electric motor. The geometry and dimensions of the rotating arm are defined in the CAD model [`/drawings`](./drawings).
 
 Two standard ice hockey pucks are mounted at opposite ends of the rotating arm. This symmetric mass distribution ensures dynamic balance during operation and significantly reduces vibrations at higher rotational speeds. The puck holders and integrated release mechanisms are defined in
-['/release Mechanism'](./release Mechnism).
-and the corresponding part files in the same directory.
+['/release Mechanism'](./release Mechnism). and the corresponding part files in the same directory.
 
 The electronic components required for motor control and sensor feedback are documented in the ['/Electronic'](.Electronic) directory. This folder contains the complete circuit schematic, including the motor drive, power supply, and the Hall effect sensor used for rotational speed measurement.
 
@@ -30,18 +29,12 @@ The SpinLauncher is controlled via a software-based speed control system that en
 
 The measured RPM is used to monitor the acceleration process and to verify that the predefined target speed has been reached. This feedback mechanism allows reliable speed setting and ensures that launches are performed only under well-defined conditions.
 
-All control-related code is located in the
-['/SpinlaunchController'](./SpinlaunchController)
-
-directory of this repository.
+All control-related code is located in the ['/SpinlaunchController'](./SpinlaunchController) directory of this repository.
 
 In addition to the embedded control logic, a web-based control interface is implemented directly on the controller. The system hosts a lightweight web server that allows the user to:
-
-set target RPM values,
-
-monitor the current rotational speed,
-
-manually trigger the puck release.
+- set target RPM values,
+- monitor the current rotational speed,
+- manually trigger the puck release.
 
 The release can be initiated via the web interface once the system has reached the predefined target RPM and angular position. This ensures that the puck is released only when both speed and orientation conditions are satisfied, improving repeatability and experimental control.
 
@@ -66,9 +59,7 @@ The camera configuration was identical for all experiments and is summarized bel
 - **Trigger mode:** Image-based auto-triggering based on grayscale intensity changes  
 - **Recording duration:** approx. 0.09 s pre-trigger and 0.55 s post-trigger  
 
-Images of the complete experimental setup, including camera placement and launcher orientation, are provided in the  
-[`/pictures`](./pictures)  
-directory.
+Images of the complete experimental setup, including camera placement and launcher orientation, are provided in the [`/pictures`](./pictures) directory.
 
 
 ### Test Procedure
@@ -83,9 +74,7 @@ The following test conditions were investigated:
 
 The number of repetitions at 55 km/h was limited due to **mechanical failure of the system**, which resulted in damage to the launcher and prevented further testing at this speed.
 
-All measurement data, including raw results and processed values, are stored in the  
-[`/Measurements/V2`](./Measurements/V2)  
-directory. This folder contains:
+All measurement data, including raw results and processed values, are stored in the [`/Measurements/V2`](./Measurements/V2) directory. This folder contains:
 - recorded measurement data,
 - analysis scripts,
 - and the corresponding Excel files that logged the test run. 
@@ -95,17 +84,13 @@ The software and data provided in this repository allow full traceability of the
 
 ## Data & Analysis
 
-The recorded measurement data were processed and analyzed to evaluate the launch velocity and repeatability of the SpinLauncher. All raw data and processed results are stored in the  
-[`/Measurements/V2`](./Measurements/V2)  
-directory.
+The recorded measurement data were processed and analyzed to evaluate the launch velocity and repeatability of the SpinLauncher. All raw data and processed results are stored in the [`/Measurements/V2`](./Measurements/V2) directory.
 
 Launch velocities were determined based on image sequences recorded with the high-speed camera. The puck position was extracted frame by frame using a **custom Python analysis script**, and the displacement over time was used to calculate the translational velocity after release. Only frames in which the puck had fully disengaged from the launcher were considered for evaluation.
 
 For each target speed, multiple repetitions were analyzed to assess repeatability. Mean values and variations of the measured launch velocities were calculated and used to compare the achieved performance across different operating points. The resulting values form the basis for the plots and tables presented in the presentation and paper.
 
-The Python script used for data processing is provided in the  
-[`/Measurements/V2`](./Measurements/V2)  
-directory. All analysis steps are documented and can be reproduced or extended by future users.
+The Python script used for data processing is provided in the [`/Measurements/V2`](./Measurements/V2) directory. All analysis steps are documented and can be reproduced or extended by future users.
 
 
 ## Results Summary
@@ -114,9 +99,7 @@ The SpinLauncher demonstrated reliable and reproducible performance across the t
 
 At higher target speeds, the system approached its mechanical limits. Tests at **55 km/h** were successfully performed for **two repetitions**, confirming the feasibility of higher launch velocities in principle. However, subsequent testing at this speed was discontinued due to mechanical failure of the launcher, which resulted in damage to the system. This failure highlights the increasing structural and dynamic loads acting on the rotating components at elevated rotational speeds. In addition, the response time of the release mechanism was insufficient at higher rotational speeds, leading to delayed puck disengagement and contributing to the observed mechanical failure.
 
-All raw and processed measurement data supporting these results are stored in the  
-[`/Measurements/V2`](./Measurements/V2)  
-directory. This folder contains the complete dataset used for analysis, including measurement files, evaluation scripts, and plots.
+All raw and processed measurement data supporting these results are stored in the [`/Measurements/V2`](./Measurements/V2) directory. This folder contains the complete dataset used for analysis, including measurement files, evaluation scripts, and plots.
 
 Overall, the results confirm that the SpinLauncher is well suited for generating reproducible puck launches within a moderate speed range. The experimental data further provide valuable insight into the mechanical limitations of the current design and define clear boundaries for safe and reliable operation.
 
