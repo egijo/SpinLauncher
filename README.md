@@ -25,7 +25,7 @@ The SpinLauncher hardware consists of a mechanically simple but dynamically bala
 Two standard ice hockey pucks are mounted at opposite ends of the rotating arm. This symmetric mass distribution ensures dynamic balance during operation and significantly reduces vibrations at higher rotational speeds. Each puck is inserted into a release mechanism. It is designed to imediately release the puck when it is being triggered. The servo mounted on the rotor is connected to the trigger through a wire. If the servo moves, it will pull the trigger of the release mechanism. This will release the puck as an outcome and the puck will be pressed against the wall because of the centrifugal forces. The next time the rotor will pass the puck outlet, the puck will fly through the outlet. The puck holders and integrated release mechanisms are defined in
 ['/release Mechanism'](./release Mechanism). and the corresponding part files in the same directory.
 
-The electronic components required for motor control and sensor feedback are documented in the ['/Electronic'](.Electronic) directory. This folder contains the complete circuit schematic, including the motor drive, power supply, and the Hall effect sensor used for rotational speed measurement.
+The electronic components required for motor control and sensor feedback are documented in the ['/Electronic'](Electronic) directory. This folder contains the complete circuit schematic, including the motor drive, power supply, and the Hall effect sensor used for rotational speed measurement.
 
 The rotating arm is connected to the motor shaft via a torque coupling, which ensures reliable torque transmission while maintaining axial alignment. All rotating components are mounted on a rigid frame structure made out ot ITEMs that supports the motor and ensures a stable horizontal rotation axis. The frame design, including mounting points for the motor and safety elements, is defined in [`/drawings`](./drawings).
 
@@ -34,7 +34,7 @@ The SpinLauncher is controlled via a software-based speed control system that en
 
 The measured RPM is used to monitor the acceleration process and to verify that the predefined target speed has been reached. This feedback mechanism allows reliable speed setting and ensures that launches are performed only under well-defined conditions.
 
-All control-related code is located in the ['/SpinlaunchController'](./SpinlaunchController) directory of this repository.
+All control-related code is located in the ['/SpinlaunchController'](SpinlaunchController) directory of this repository.
 
 In addition to the embedded control logic, a web-based control interface is implemented directly on the controller. The system hosts a lightweight web server that allows the user to:
 - set target RPM values,
