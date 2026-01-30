@@ -131,3 +131,5 @@ Addressing these limitations is expected to increase the maximum achievable laun
 Paper:
 
 Notion: https://www.notion.so/mci-medtech/Hockey-PRO-28091a52c19480998451c0e8b286c635
+
+final Presentation: [`Presentation`](Documentation)
